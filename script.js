@@ -20,15 +20,14 @@
    ========================================================================== */
 const APP_CONFIG = {
   /**
-   * Set your public APK download URL here when ready.
-   * Example: "https://github.com/your-username/vehicare/releases/download/v1.0.0/vehicare-v1.0.0.apk"
-   * Leave empty ("") to show the informative "Release in Preparation" modal.
+   * Public APK download and repository release endpoints.
    */
-  apkDownloadUrl: "",
+  apkDownloadUrl: "https://github.com/andweigo/vehicare-website/releases/download/v1.0.0/vehicare-release.apk",
+  githubReleasesUrl: "https://github.com/andweigo/vehicare-website/releases",
+  githubRepoUrl: "https://github.com/andweigo/vehicare-website",
   appVersion: "v1.0.0-beta",
-  releaseStatus: "Beta Testing Phase",
-  targetPlatform: "Android 8.0 (Oreo) or higher",
-  repoUrl: "https://github.com"
+  releaseStatus: "Release v1.0.0 Ready",
+  targetPlatform: "Android 8.0 (Oreo) or higher"
 };
 
 /* ==========================================================================
@@ -299,6 +298,83 @@ function initDiagnosticDemo() {
   const vehicleModeBtns = document.querySelectorAll('.terminal-mode-btn');
   const presetsBar = document.getElementById('presetsBar');
 
+  const aiKeyBtn = document.getElementById('aiKeyToggleBtn');
+  const aiEngineLabel = document.getElementById('aiEngineLabel');
+  const terminalStatusDot = document.getElementById('terminalStatusDot');
+  const aiKeyModal = document.getElementById('aiKeyModal');
+  const aiKeyClose = document.getElementById('aiKeyClose');
+  const geminiApiKeyInput = document.getElementById('geminiApiKeyInput');
+  const saveAiKeyBtn = document.getElementById('saveAiKeyBtn');
+  const clearAiKeyBtn = document.getElementById('clearAiKeyBtn');
+
+  let geminiApiKey = localStorage.getItem('vehicare_gemini_key') || '';
+
+  function updateAiEngineUI() {
+    if (geminiApiKey && geminiApiKey.trim().length > 5) {
+      if (aiEngineLabel) aiEngineLabel.innerHTML = '<span style="color:#86efac; font-weight:700;">Live Gemini AI</span>';
+      if (terminalStatusDot) {
+        terminalStatusDot.style.background = '#10b981';
+        terminalStatusDot.style.boxShadow = '0 0 8px rgba(16,185,129,0.7)';
+      }
+      if (geminiApiKeyInput) geminiApiKeyInput.value = geminiApiKey;
+    } else {
+      if (aiEngineLabel) aiEngineLabel.textContent = 'Local Triage';
+      if (terminalStatusDot) {
+        terminalStatusDot.style.background = '#f5501c';
+        terminalStatusDot.style.boxShadow = '0 0 8px rgba(245,80,28,0.5)';
+      }
+      if (geminiApiKeyInput) geminiApiKeyInput.value = '';
+    }
+  }
+  updateAiEngineUI();
+
+  if (aiKeyBtn && aiKeyModal) {
+    aiKeyBtn.addEventListener('click', () => {
+      aiKeyModal.classList.add('open');
+      document.body.classList.add('drawer-open');
+      if (geminiApiKeyInput) geminiApiKeyInput.focus();
+    });
+  }
+
+  function closeAiKeyModal() {
+    if (aiKeyModal) {
+      aiKeyModal.classList.remove('open');
+      document.body.classList.remove('drawer-open');
+    }
+  }
+
+  if (aiKeyClose) aiKeyClose.addEventListener('click', closeAiKeyModal);
+  if (aiKeyModal) {
+    aiKeyModal.addEventListener('click', (e) => {
+      if (e.target === aiKeyModal) closeAiKeyModal();
+    });
+  }
+
+  if (saveAiKeyBtn && geminiApiKeyInput) {
+    saveAiKeyBtn.addEventListener('click', () => {
+      const val = geminiApiKeyInput.value.trim();
+      if (val && val.length > 8) {
+        geminiApiKey = val;
+        localStorage.setItem('vehicare_gemini_key', val);
+        updateAiEngineUI();
+        closeAiKeyModal();
+        appendMessage('system', '⚡ Google Gemini Live AI Engine activated! Your queries are now evaluated dynamically by Gemini in real time.');
+      } else {
+        window.alert('Please paste a valid Google Gemini API key from Google AI Studio.');
+      }
+    });
+  }
+
+  if (clearAiKeyBtn) {
+    clearAiKeyBtn.addEventListener('click', () => {
+      geminiApiKey = '';
+      localStorage.removeItem('vehicare_gemini_key');
+      updateAiEngineUI();
+      closeAiKeyModal();
+      appendMessage('system', 'Switched back to VehiCare built-in local triage engine.');
+    });
+  }
+
   if (!form || !input || !submitBtn || !screen) return;
 
   const vehicleConfigs = {
@@ -425,19 +501,87 @@ function initDiagnosticDemo() {
     });
   }
 
-  function executeTriage(rawQuery) {
+  async function executeTriage(rawQuery) {
     appendMessage('user', rawQuery);
     input.value = '';
     submitBtn.disabled = true;
 
-    if (loader) loader.classList.add('active');
+    if (loader) {
+      const loaderText = loader.querySelector('span:nth-child(2)');
+      if (loaderText) {
+        loaderText.textContent = geminiApiKey
+          ? 'Connecting to Gemini AI neural diagnostic engine...'
+          : 'Evaluating mechanical symptom matrix...';
+      }
+      loader.classList.add('active');
+    }
     screen.scrollTop = screen.scrollHeight;
 
+    if (geminiApiKey && geminiApiKey.trim().length > 5) {
+      try {
+        const liveReport = await queryGeminiAI(rawQuery, activeVehicle, geminiApiKey);
+        if (loader) loader.classList.remove('active');
+        appendMessage('report', liveReport);
+        return;
+      } catch (err) {
+        console.warn('Gemini Live AI error, falling back to local engine:', err);
+        appendMessage('system', `⚠️ Gemini API note: ${err.message}. Seamlessly falling back to local automotive engine.`);
+      }
+    }
+
+    // Local evaluation fallback
     setTimeout(() => {
       if (loader) loader.classList.remove('active');
       const assessment = evaluateSymptom(rawQuery, activeVehicle);
       appendMessage('report', assessment);
     }, 450);
+  }
+
+  async function queryGeminiAI(query, vehicle, apiKey) {
+    const systemPrompt = `You are VehiCare AI, an expert multi-vehicle diagnostics and repair intelligence system specialized in passenger cars, motorcycles/scooters, and bicycles.
+Analyze the user's vehicle concern for:
+Vehicle: ${vehicle.name} (${vehicle.tag})
+Symptom/Question: "${query}"
+
+Provide a realistic, professional mechanical triage assessment in JSON format with EXACTLY these keys:
+{
+  "title": "Short technical diagnostic title (e.g. Valvetrain Triage // Valve Clearance Slack)",
+  "severity": "Routine Care" or "Due Soon" or "Needs Immediate Attention",
+  "severityClass": "badge-ready" (for Routine Care) or "badge-attention" (for Due Soon) or "badge-urgent" (for Needs Immediate Attention),
+  "causes": ["Possible root cause 1 with specific mechanical detail", "Possible root cause 2 with specific mechanical detail", "Possible root cause 3 with specific mechanical detail"],
+  "action": "Clear step-by-step immediate inspection recommendation or DIY check",
+  "costRef": "Estimated parts + labor price range in USD and Philippine Pesos (e.g. Parts: $20 – $40 (₱1,100 – ₱2,200) • Labor: $15 – $30 (₱850 – ₱1,700))"
+}
+Output ONLY raw valid JSON without markdown code blocks.`;
+
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: systemPrompt }]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.2,
+          maxOutputTokens: 800
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData?.error?.message || `HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+    const parsed = JSON.parse(cleanJson);
+    parsed.title = `⚡ [LIVE GEMINI AI] ${parsed.title || 'Diagnostic Assessment'}`;
+    return parsed;
   }
 
   function evaluateSymptom(query, vehicle) {
@@ -589,22 +733,18 @@ function initDownloadHandlers() {
   const downloadTriggers = document.querySelectorAll('.js-download-trigger');
   const modal = document.getElementById('downloadModal');
   const closeBtn = document.getElementById('downloadClose');
-  const statusLabel = document.getElementById('apkStatusLabel');
+  const directApkBtn = document.getElementById('directApkBtn');
 
-  if (statusLabel) {
-    statusLabel.textContent = APP_CONFIG.apkDownloadUrl ? `Ready (${APP_CONFIG.appVersion})` : APP_CONFIG.releaseStatus;
+  if (directApkBtn && APP_CONFIG.apkDownloadUrl) {
+    directApkBtn.href = APP_CONFIG.apkDownloadUrl;
   }
 
   downloadTriggers.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      if (APP_CONFIG.apkDownloadUrl && APP_CONFIG.apkDownloadUrl.trim() !== "") {
-        window.location.href = APP_CONFIG.apkDownloadUrl;
-      } else {
-        e.preventDefault();
-        if (modal) {
-          modal.classList.add('open');
-          document.body.classList.add('drawer-open');
-        }
+      e.preventDefault();
+      if (modal) {
+        modal.classList.add('open');
+        document.body.classList.add('drawer-open');
       }
     });
   });
@@ -631,15 +771,16 @@ function initDownloadHandlers() {
 }
 
 /* ==========================================================================
-   8. Contact Form Client-Side Validation
+   8. Contact Form Live Gmail Dispatch (FormSubmit Integration)
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const alert = document.getElementById('contactSuccess');
+  const submitBtn = document.getElementById('contactSubmitBtn');
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('contactName');
@@ -655,13 +796,61 @@ function initContactForm() {
     if (!vehicle || vehicle.value === '') valid = false;
     if (!msg || msg.value.trim().length < 10) valid = false;
 
-    if (valid) {
+    if (!valid) {
+      window.alert('Please fill out all required fields with a valid email address and a message of at least 10 characters.');
+      return;
+    }
+
+    const prevBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Message';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending to Andrei via Gmail...';
+    }
+
+    try {
+      const payload = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        vehicle_category: vehicle.options[vehicle.selectedIndex].text,
+        message: msg.value.trim(),
+        _subject: `New VehiCare Inquiry from ${name.value.trim()} [${vehicle.options[vehicle.selectedIndex].text}]`,
+        _template: "table",
+        _captcha: "false"
+      };
+
+      const response = await fetch("https://formsubmit.co/ajax/obligarandrei60@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        if (alert) {
+          alert.innerHTML = '<strong>✓ Message Delivered to Andrei!</strong> Thank you for your inquiry. Your message has been routed directly to <code>obligarandrei60@gmail.com</code>. We will respond to your email address shortly.';
+          alert.style.display = 'block';
+          alert.style.background = 'rgba(16,185,129,0.12)';
+          alert.style.borderColor = 'rgba(16,185,129,0.35)';
+          alert.style.color = '#86efac';
+        }
+        form.reset();
+      } else {
+        throw new Error('FormSubmit returned status ' + response.status);
+      }
+    } catch (err) {
+      console.warn('FormSubmit network error, launching mailto fallback:', err);
+      window.location.href = `mailto:obligarandrei60@gmail.com?subject=${encodeURIComponent('VehiCare Inquiry from ' + name.value.trim())}&body=${encodeURIComponent(msg.value.trim() + '\n\nSender: ' + name.value.trim() + ' (' + email.value.trim() + ')\nVehicle: ' + vehicle.options[vehicle.selectedIndex].text)}`;
       if (alert) {
+        alert.innerHTML = '<strong>✓ Dispatch Ready:</strong> If your email client did not open automatically, please send directly to <a href="mailto:obligarandrei60@gmail.com" style="color:#fff; text-decoration:underline;">obligarandrei60@gmail.com</a>.';
         alert.style.display = 'block';
       }
-      form.reset();
-    } else {
-      window.alert('Please fill out all required fields with a valid email address and a message of at least 10 characters.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = prevBtnText;
+      }
     }
   });
 }

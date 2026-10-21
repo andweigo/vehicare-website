@@ -25,8 +25,9 @@ Unlike generic SaaS landing pages, this website is art-directed for automotive t
 vehicare-website/
 ├── index.html                           # Semantic HTML5 document (Mobile-first layout)
 ├── styles.css                           # Production CSS3 design system & responsive styling
-├── script.js                            # Modular vanilla ES6+ controllers
-├── favicon.svg                          # Vector brand SVG favicon
+├── script.js                            # Modular vanilla ES6+ controllers (Live AI & Gmail dispatch)
+├── favicon.svg                          # Scalable SVG brand mark
+├── render.yaml                          # Render Blueprint for 1-click deployment
 ├── README.md                            # Complete engineering & deployment guide
 ├── vehicare-website-production.zip      # Clean production archive ready for upload
 └── assets/

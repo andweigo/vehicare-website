@@ -428,12 +428,14 @@
           <!-- Topbar -->
           <div class="terminal-header">
             <div class="terminal-title">
-              <span class="terminal-status-dot"></span>
-              <span>VEHICARE // DIAGNOSTIC TRIAGE PREVIEW</span>
+              <span class="terminal-status-dot" id="terminalStatusDot"></span>
+              <span id="terminalEngineTitle">VEHICARE // DIAGNOSTIC TRIAGE</span>
             </div>
             <div style="display:flex; align-items:center; gap:8px;">
-              <span class="badge badge-attention">Web Simulation</span>
-              <button type="button" id="demoResetBtn" class="btn btn-secondary btn-sm" style="font-family:var(--font-mono); font-size:11px;">
+              <button type="button" id="aiKeyToggleBtn" class="btn btn-secondary btn-sm" style="font-family:var(--font-mono); font-size:11px; padding:4px 10px;" title="Configure Live Gemini AI">
+                ⚡ <span id="aiEngineLabel">Local Triage</span>
+              </button>
+              <button type="button" id="demoResetBtn" class="btn btn-secondary btn-sm" style="font-family:var(--font-mono); font-size:11px; padding:4px 10px;">
                 Reset
               </button>
             </div>
@@ -624,14 +626,14 @@
             Interested in testing the Android beta, providing feedback on diagnostic accuracy, or discussing workshop integrations? Send us a message.
           </p>
           <div style="margin-top:20px; padding:14px; background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); font-size:12px; color:var(--text-mid);">
-            <strong style="color:#fff; display:block; margin-bottom:4px;">Deployment Notice:</strong>
-            This form executes client-side validation. To route submissions to an email inbox or database on Render, connect an endpoint like Formspree or your backend as documented in <code>README.md</code>.
+            <strong style="color:#fff; display:block; margin-bottom:4px;">Direct Inbox Dispatch:</strong>
+            Submissions are transmitted securely to Andrei (<code style="color:var(--orange-light);">obligarandrei60@gmail.com</code>). You will receive a direct reply to your email address.
           </div>
         </div>
 
         <div class="contact-card">
           <div id="contactSuccess" style="display:none; padding:12px 14px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:var(--radius-sm); font-size:13px; color:#86efac; margin-bottom:16px;">
-            <strong>✓ Message Validated:</strong> Thank you for your inquiry. (As noted, live email routing requires configuring your backend endpoint).
+            <strong>✓ Message Sent to Andrei:</strong> Thank you for your inquiry. We have received your message at <code>obligarandrei60@gmail.com</code> and will respond shortly.
           </div>
 
           <form id="contactForm" novalidate>
@@ -661,8 +663,8 @@
               <textarea id="contactMsg" class="form-input" rows="3" placeholder="Describe your question or testing interest..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-full">
-              Submit Message &rarr;
+            <button type="submit" id="contactSubmitBtn" class="btn btn-primary btn-full">
+              Submit Message to Andrei &rarr;
             </button>
           </form>
         </div>
@@ -741,23 +743,90 @@
     </div>
   </div>
 
-  <!-- Download Info / Coming Soon Modal -->
+  <!-- Download Info / Release Modal -->
   <div id="downloadModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Download Information">
-    <div class="modal-content">
+    <div class="modal-content download-box">
       <button type="button" id="downloadClose" class="modal-close" aria-label="Close dialog">&times;</button>
-      <span class="kicker">Android Release</span>
-      <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:#fff; margin-bottom:10px;">
-        VehiCare APK Release
+      <span class="kicker">Android Standalone APK</span>
+      <h3 style="font-family:var(--font-display); font-size:22px; font-weight:700; color:#fff; margin-bottom:10px;">
+        Download VehiCare Android App
       </h3>
       <p style="font-size:14px; color:var(--text-mid); line-height:1.6; margin-bottom:16px;">
-        The public APK download link has not yet been attached to this deployment.
+        Install the official VehiCare Android application to access real-time acoustic knock analysis, photo wear detection, and offline triage on your phone.
       </p>
-      <div style="background:#090909; border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:12px; font-family:var(--font-mono); font-size:11px; color:var(--text-mid); margin-bottom:18px;">
-        <strong style="color:#fff;">Repository Setup:</strong> Configure <code>APP_CONFIG.apkDownloadUrl</code> in <code>script.js</code> with your GitHub Release or hosted APK link.
+
+      <div class="apk-download-card">
+        <div class="apk-version-tag">RELEASE v1.0.0-BETA</div>
+        <div class="apk-meta-row">
+          <span>Size: <strong>~18 MB</strong></span> &bull; 
+          <span>Package: <strong>com.vehicare.app</strong></span> &bull; 
+          <span>Min OS: <strong>Android 8.0+</strong></span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <a href="https://github.com/andweigo/vehicare-website/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full" id="directApkBtn">
+            Download APK via GitHub Releases &darr;
+          </a>
+          <a href="https://github.com/andweigo/vehicare-website" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full" style="font-size:12px;">
+            View Source on GitHub &nearr;
+          </a>
+        </div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <a href="#contact" class="btn btn-primary" onclick="document.getElementById('downloadModal').classList.remove('open'); document.body.classList.remove('drawer-open');">Join Beta Waitlist &rarr;</a>
-        <button type="button" class="btn btn-secondary" onclick="document.getElementById('downloadModal').classList.remove('open'); document.body.classList.remove('drawer-open');">Close</button>
+
+      <div class="apk-install-guide">
+        <h4>Quick 3-Step Android Installation:</h4>
+        <ol>
+          <li>Tap <strong>Download APK</strong> and save the file to your Android device.</li>
+          <li>Tap the downloaded file in your browser notifications or Files app.</li>
+          <li>When prompted, allow <em>"Install unknown apps"</em> in Android Settings, then tap <strong>Install</strong>.</li>
+        </ol>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('downloadModal').classList.remove('open'); document.body.classList.remove('drawer-open');">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live AI Gemini Key Modal -->
+  <div id="aiKeyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Live AI Engine Settings">
+    <div class="modal-content" style="max-width:440px;">
+      <button type="button" id="aiKeyClose" class="modal-close" aria-label="Close dialog">&times;</button>
+      <span class="kicker">⚡ Live Neural AI Engine</span>
+      <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:#fff; margin-bottom:10px;">
+        Connect Google Gemini AI
+      </h3>
+      <p style="font-size:13px; color:var(--text-mid); line-height:1.6; margin-bottom:14px;">
+        Activate real-time generative AI diagnostics. With a free API key from Google AI Studio, the browser console will diagnose <em>any custom mechanical issue</em> for cars, motorcycles, and bicycles.
+      </p>
+
+      <div class="form-group">
+        <label for="geminiApiKeyInput" class="form-label" style="display:flex; justify-content:space-between;">
+          <span>Google Gemini API Key</span>
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--orange-light); font-size:11px; text-decoration:underline;">
+            Get Free Key &nearr;
+          </a>
+        </label>
+        <input
+          type="password"
+          id="geminiApiKeyInput"
+          class="form-input"
+          placeholder="Paste AIzaSy... key"
+          autocomplete="off"
+        >
+        <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-low); margin-top:4px; display:block;">
+          Stored locally in your browser (never transmitted to third parties).
+        </span>
+      </div>
+
+      <div style="display:flex; gap:10px; margin-top:16px;">
+        <button type="button" id="saveAiKeyBtn" class="btn btn-primary" style="flex:1;">
+          Save &amp; Activate Live AI
+        </button>
+        <button type="button" id="clearAiKeyBtn" class="btn btn-secondary">
+          Clear / Use Local
+        </button>
       </div>
     </div>
   </div>
