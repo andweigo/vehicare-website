@@ -84,25 +84,23 @@ The mobile navigation is built with mobile-first CSS and touch-friendly controls
 
 ## 5. Configuring the Real APK Download Link
 
-The APK download URL is centralized in **one single location** in `script.js` (lines 22–33):
+The APK download URL is centralized in **one single location** in `script.js` (lines 20–35):
 
 ```javascript
 const APP_CONFIG = {
-  /**
-   * Set your public APK download URL here when ready.
-   * Example: "https://github.com/your-username/vehicare/releases/download/v1.0.0/vehicare-v1.0.0.apk"
-   * Leave empty ("") to show the informative "Release in Preparation" modal.
-   */
-  apkDownloadUrl: "",
-  appVersion: "v1.0.0-beta",
-  releaseStatus: "Beta Testing Phase",
+  apkDownloadUrl: "https://github.com/andweigo/VehiCare/releases/latest/download/app-release.apk",
+  githubReleasesUrl: "https://github.com/andweigo/VehiCare/releases/latest",
+  githubRepoUrl: "https://github.com/andweigo/VehiCare",
+  appVersion: "v1.0.0",
+  releaseStatus: "Official Release v1.0.0 (Ready)",
   targetPlatform: "Android 8.0 (Oreo) or higher",
-  repoUrl: "https://github.com"
+  apkSize: "136 MB",
+  defaultGeminiApiKey: ""
 };
 ```
 
-- **When `apkDownloadUrl` is empty (`""`):** Clicking any download button opens an informative "Release in Preparation" modal guiding the user and providing a waitlist option. No broken 404 links or invalid local file paths are exposed.
-- **When `apkDownloadUrl` is set:** Clicking any download button immediately downloads the APK binary from the specified URL.
+- **Official Release Download:** Clicking any download button automatically triggers the download of `app-release.apk` (136.3 MB) from the official GitHub Release tag `v1.0.0`.
+- **Release Tracking:** Always points to `https://github.com/andweigo/VehiCare/releases/latest`.
 
 ---
 

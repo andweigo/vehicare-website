@@ -22,12 +22,13 @@ const APP_CONFIG = {
   /**
    * Public APK download and repository release endpoints.
    */
-  apkDownloadUrl: "https://github.com/andweigo/vehicare-website/releases/download/v1.0.0/vehicare-release.apk",
-  githubReleasesUrl: "https://github.com/andweigo/vehicare-website/releases",
-  githubRepoUrl: "https://github.com/andweigo/vehicare-website",
-  appVersion: "v1.0.0-beta",
-  releaseStatus: "Release v1.0.0 Ready",
+  apkDownloadUrl: "https://github.com/andweigo/VehiCare/releases/latest/download/app-release.apk",
+  githubReleasesUrl: "https://github.com/andweigo/VehiCare/releases/latest",
+  githubRepoUrl: "https://github.com/andweigo/VehiCare",
+  appVersion: "v1.0.0",
+  releaseStatus: "Official Release v1.0.0 (Ready)",
   targetPlatform: "Android 8.0 (Oreo) or higher",
+  apkSize: "136 MB",
   /**
    * Optional: Default Google Gemini API key for live AI diagnostics.
    * If provided here, live AI activates automatically for all visitors.
