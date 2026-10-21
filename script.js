@@ -818,7 +818,7 @@ function initContactForm() {
         _captcha: "false"
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/obligarandrei60@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/vehicare0@gmail.com", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -829,7 +829,7 @@ function initContactForm() {
 
       if (response.ok) {
         if (alert) {
-          alert.innerHTML = '<strong>✓ Message Delivered to Andrei!</strong> Thank you for your inquiry. Your message has been routed directly to <code>obligarandrei60@gmail.com</code>. We will respond to your email address shortly.';
+          alert.innerHTML = '<strong>✓ Message Delivered to VehiCare!</strong> Thank you for your inquiry. Your message has been routed directly to <code>vehicare0@gmail.com</code>. We will respond to your email address shortly.';
           alert.style.display = 'block';
           alert.style.background = 'rgba(16,185,129,0.12)';
           alert.style.borderColor = 'rgba(16,185,129,0.35)';
@@ -841,9 +841,9 @@ function initContactForm() {
       }
     } catch (err) {
       console.warn('FormSubmit network error, launching mailto fallback:', err);
-      window.location.href = `mailto:obligarandrei60@gmail.com?subject=${encodeURIComponent('VehiCare Inquiry from ' + name.value.trim())}&body=${encodeURIComponent(msg.value.trim() + '\n\nSender: ' + name.value.trim() + ' (' + email.value.trim() + ')\nVehicle: ' + vehicle.options[vehicle.selectedIndex].text)}`;
+      window.location.href = `mailto:vehicare0@gmail.com?subject=${encodeURIComponent('VehiCare Inquiry from ' + name.value.trim())}&body=${encodeURIComponent(msg.value.trim() + '\n\nSender: ' + name.value.trim() + ' (' + email.value.trim() + ')\nVehicle: ' + vehicle.options[vehicle.selectedIndex].text)}`;
       if (alert) {
-        alert.innerHTML = '<strong>✓ Dispatch Ready:</strong> If your email client did not open automatically, please send directly to <a href="mailto:obligarandrei60@gmail.com" style="color:#fff; text-decoration:underline;">obligarandrei60@gmail.com</a>.';
+        alert.innerHTML = '<strong>✓ Dispatch Ready:</strong> If your email client did not open automatically, please send directly to <a href="mailto:vehicare0@gmail.com" style="color:#fff; text-decoration:underline;">vehicare0@gmail.com</a>.';
         alert.style.display = 'block';
       }
     } finally {
