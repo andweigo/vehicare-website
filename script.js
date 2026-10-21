@@ -27,7 +27,13 @@ const APP_CONFIG = {
   githubRepoUrl: "https://github.com/andweigo/vehicare-website",
   appVersion: "v1.0.0-beta",
   releaseStatus: "Release v1.0.0 Ready",
-  targetPlatform: "Android 8.0 (Oreo) or higher"
+  targetPlatform: "Android 8.0 (Oreo) or higher",
+  /**
+   * Optional: Default Google Gemini API key for live AI diagnostics.
+   * If provided here, live AI activates automatically for all visitors.
+   * If left empty (""), the site uses the built-in local heuristics engine.
+   */
+  defaultGeminiApiKey: ""
 };
 
 /* ==========================================================================
@@ -307,7 +313,7 @@ function initDiagnosticDemo() {
   const saveAiKeyBtn = document.getElementById('saveAiKeyBtn');
   const clearAiKeyBtn = document.getElementById('clearAiKeyBtn');
 
-  let geminiApiKey = localStorage.getItem('vehicare_gemini_key') || '';
+  let geminiApiKey = localStorage.getItem('vehicare_gemini_key') || (APP_CONFIG.defaultGeminiApiKey && APP_CONFIG.defaultGeminiApiKey.trim()) || '';
 
   function updateAiEngineUI() {
     if (geminiApiKey && geminiApiKey.trim().length > 5) {
