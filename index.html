@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="color-scheme" content="dark">
+  
+  <!-- Primary Meta Tags -->
+  <title>VehiCare — Intelligent Multi-Vehicle Diagnostics &amp; Maintenance</title>
+  <meta name="title" content="VehiCare — Intelligent Multi-Vehicle Diagnostics & Maintenance">
+  <meta name="description" content="AI-assisted mechanical triage and maintenance tracking for cars, motorcycles, and bicycles. Interpret symptoms, track service intervals, and estimate repair costs.">
+  <meta name="keywords" content="vehicle diagnostics, motorcycle maintenance, car repair AI, bicycle maintenance, OBD-II codes, repair cost estimator, auto mechanic finder, VehiCare">
+  <meta name="author" content="VehiCare">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vehicare.onrender.com/">
+  <meta property="og:title" content="VehiCare — Intelligent Multi-Vehicle Diagnostics & Maintenance">
+  <meta property="og:description" content="Driving Smarter. Diagnosing Faster. Maintaining Better. Multi-vehicle mechanical diagnostics for cars, motorcycles, and bicycles.">
+  <meta property="og:image" content="assets/logo.png">
+
+  <!-- Twitter Meta -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="VehiCare — Intelligent Multi-Vehicle Diagnostics & Maintenance">
+  <meta property="twitter:description" content="AI-assisted mechanical triage and maintenance tracking for cars, motorcycles, and bicycles.">
+  <meta property="twitter:image" content="assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="alternate icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <!-- Typography: Outfit (Display) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+  <!-- Accessibility Skip Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Backdrop for Mobile Drawer -->
+  <div id="navBackdrop" class="nav-backdrop" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#top" class="brand" aria-label="VehiCare Home">
+        <div class="brand-icon">
+          <img src="assets/logo.png" alt="VehiCare Logo" width="34" height="34" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;color:#f5501c;font-size:15px;\'>V+</span>'">
+        </div>
+        <span class="brand-text">Vehi<span class="accent-orange">Care</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#overview">Overview</a>
+        <a href="#experience">Experience</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#vehicles">Vehicles</a>
+        <a href="#demo">Diagnostic Demo</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button type="button" class="btn btn-primary btn-sm btn-cta js-download-trigger">
+          Get the App
+        </button>
+        <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          &#9776;
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation Drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="assets/logo.png" alt="VehiCare Logo" width="30" height="30" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;color:#f5501c;font-size:14px;\'>V+</span>'">
+        </div>
+        <span class="brand-text">Vehi<span class="accent-orange">Care</span></span>
+      </div>
+      <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Close navigation menu">
+        &times;
+      </button>
+    </div>
+
+    <div class="drawer-nav">
+      <a href="#overview" class="drawer-link">Overview</a>
+      <a href="#experience" class="drawer-link">App Experience</a>
+      <a href="#how-it-works" class="drawer-link">How It Works</a>
+      <a href="#vehicles" class="drawer-link">Supported Vehicles</a>
+      <a href="#demo" class="drawer-link">Diagnostic Demo</a>
+      <a href="#download" class="drawer-link">Download APK</a>
+      <a href="#faq" class="drawer-link">FAQ</a>
+      <a href="#contact" class="drawer-link">Contact</a>
+    </div>
+
+    <div class="drawer-footer">
+      <button type="button" class="btn btn-primary btn-full js-download-trigger">
+        Download Android App
+      </button>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- ====================================================================
+         1. HERO SECTION
+         ==================================================================== -->
+    <section class="section hero-section" id="overview">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="kicker">Intelligent Vehicle Diagnostics</span>
+          <h1 class="hero-title">
+            Diagnostics and care for <span class="accent-orange">everything you ride.</span>
+          </h1>
+          <p class="hero-lead">
+            VehiCare uses AI to help you understand mechanical symptoms, stay ahead of maintenance, and discover trusted nearby repair shops for cars, motorcycles, and bicycles.
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary js-download-trigger">
+              Download Android App &darr;
+            </button>
+            <a href="#demo" class="btn btn-secondary">
+              Try Diagnostic Demo &rarr;
+            </a>
+          </div>
+
+          <div class="hero-spec-strip">
+            <div class="hero-spec-item"><span class="bullet">&bull;</span> Cars, Motorcycles &amp; Bicycles</div>
+            <div class="hero-spec-item"><span class="bullet">&bull;</span> Audio, Photo &amp; Text Analysis</div>
+            <div class="hero-spec-item"><span class="bullet">&bull;</span> Android Standalone APK</div>
+          </div>
+        </div>
+
+        <!-- Authentic 3D Hardware Device Mockup -->
+        <div class="hero-device-wrapper">
+          <div class="device-mockup hero-perspective-mockup" id="heroMockupFrame" role="button" tabindex="0" title="Click to inspect high-resolution 3D mockup" aria-label="Inspect 3D phone mockup in full view">
+            <img
+              src="assets/screenshots/mockup-duo-hero.png"
+              alt="VehiCare Android Mobile App 3D Mockup: Home Dashboard and AI Diagnostic Assistant on Yamaha Sniper 150"
+              class="device-mockup-img hero-perspective-img"
+              width="560"
+              height="673"
+              loading="eager"
+            >
+            <div class="device-mockup-badge">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>DUAL-SCREEN 3D SUITE &bull; ACTIVE: YAMAHA SNIPER 150</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         2. PRODUCT EXPERIENCE (Authentic Screenshots as Evidence)
+         ==================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">App Experience</span>
+          <h2 class="title">The entire health of your vehicle <span class="accent-orange">at a glance.</span></h2>
+          <p class="lead">
+            Authentic screens from the VehiCare Android application. Tap any module to inspect the user interface in high resolution.
+          </p>
+        </div>
+
+        <div class="walkthrough-layout">
+          <!-- Interactive Selector -->
+          <div class="walkthrough-selector" role="tablist" aria-label="App Experience Modules">
+            <button
+              type="button"
+              class="walkthrough-item active"
+              data-screen="01"
+              role="tab"
+              aria-selected="true"
+              aria-controls="walkthroughStage"
+            >
+              <span class="walkthrough-item-num">01 // HEALTH MONITORING</span>
+              <h3 class="walkthrough-item-title">Maintenance &amp; Urgent Health Center</h3>
+              <p class="walkthrough-item-desc">Overall health gauge (25% Needs Immediate Attention), 8 critical alerts, 8 overdue items, and beginner's 3-step maintenance overview.</p>
+            </button>
+
+            <button
+              type="button"
+              class="walkthrough-item"
+              data-screen="02"
+              role="tab"
+              aria-selected="false"
+              aria-controls="walkthroughStage"
+            >
+              <span class="walkthrough-item-num">02 // AI CONSULTATION</span>
+              <h3 class="walkthrough-item-title">Model-Specific Technical Guidance</h3>
+              <p class="walkthrough-item-desc">Conversational diagnostic breakdown analyzing specific vehicles—such as Yamaha Sniper 150 recommended 10W-40 4T oil specs and 25-35mm chain slack.</p>
+            </button>
+
+            <button
+              type="button"
+              class="walkthrough-item"
+              data-screen="03"
+              role="tab"
+              aria-selected="false"
+              aria-controls="walkthroughStage"
+            >
+              <span class="walkthrough-item-num">03 // COMMAND DASHBOARD</span>
+              <h3 class="walkthrough-item-title">Daily Vehicle Command Center</h3>
+              <p class="walkthrough-item-desc">Active Yamaha Sniper 150 profile, rapid "Something wrong?" intake, and 4 dedicated vehicle service centers: Maintenance, Mechanics, Issues, and AI Tips.</p>
+            </button>
+
+            <button
+              type="button"
+              class="walkthrough-item"
+              data-screen="04"
+              role="tab"
+              aria-selected="false"
+              aria-controls="walkthroughStage"
+            >
+              <span class="walkthrough-item-num">04 // RAPID INTAKE</span>
+              <h3 class="walkthrough-item-title">Multimodal Consultation Intake</h3>
+              <p class="walkthrough-item-desc">Initial AI consultation screen with quick-action prompt suggestions, vehicle status, and multimodal text, audio, and photo input.</p>
+            </button>
+
+            <button
+              type="button"
+              class="walkthrough-item"
+              data-screen="05"
+              role="tab"
+              aria-selected="false"
+              aria-controls="walkthroughStage"
+            >
+              <span class="walkthrough-item-num">05 // SYSTEM CORE</span>
+              <h3 class="walkthrough-item-title">Multi-Vehicle Native Architecture</h3>
+              <p class="walkthrough-item-desc">Native Android client engineered specifically for cars, motorcycles, and bicycles with offline-first local diagnostics.</p>
+            </button>
+          </div>
+
+          <!-- Phone Stage -->
+          <div class="walkthrough-stage" id="walkthroughStage" role="region" aria-live="polite">
+            <div class="walkthrough-stage-wrapper" id="walkthroughFrame" role="button" tabindex="0" title="Click to inspect high-resolution screenshot" aria-label="Inspect screenshot in full view">
+              <img
+                id="stageImage"
+                src="assets/screenshots/mockup-maintenance.png"
+                alt="VehiCare Urgent Health Center: 25% health rating on Yamaha Sniper 150, 8 critical alerts, and beginner's maintenance guide"
+                class="stage-mockup-img"
+                width="360"
+                height="710"
+              >
+              <div class="stage-zoom-pill">
+                <span id="stageLabel">MODULE 01 // HEALTH MONITORING</span>
+                <span class="badge badge-attention">Click to Zoom &nearr;</span>
+              </div>
+            </div>
+            <p class="stage-caption" id="stageCaption">VehiCare Urgent Health Center: 25% health rating on Yamaha Sniper 150, 8 critical alerts, and beginner's maintenance guide</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. HOW IT WORKS (Simple Progressive Sequence)
+         ==================================================================== -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">How It Works</span>
+          <h2 class="title">From concern to <span class="accent-orange">next step.</span></h2>
+          <p class="lead">
+            A simple, structured three-step journey to resolve mechanical uncertainty before visiting a workshop.
+          </p>
+        </div>
+
+        <div class="steps-sequence">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-body">
+              <h3>Profile Your Ride</h3>
+              <p>Add your car, motorcycle, or bicycle with make, model, and year to establish customized service thresholds matching your vehicle's specifications.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-body">
+              <h3>Describe the Concern</h3>
+              <p>Enter what you hear, feel, or observe—or leverage multimodal mobile input: record an engine sound clip or capture a photo of worn parts in the app.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-body">
+              <h3>Review Guidance</h3>
+              <p>Receive probable causes, safety severity classification (Routine, Due Soon, Immediate Attention), and ballpark cost estimates before booking repairs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. VEHICLE COVERAGE
+         ==================================================================== -->
+    <section class="section" id="vehicles">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Multi-Vehicle Coverage</span>
+          <h2 class="title">Engineered for two wheels <span class="accent-orange">and four.</span></h2>
+          <p class="lead">
+            A motorcycle drive chain requires fundamentally different care than an automotive OBD-II powertrain or a bicycle hydraulic disc brake.
+          </p>
+        </div>
+
+        <div class="vehicle-grid">
+          <!-- Card 1: Motorcycles -->
+          <div class="vehicle-card featured">
+            <div class="vehicle-header">
+              <span class="vehicle-category">Two-Wheeled Powertrain</span>
+              <h3>Motorcycles &amp; Scooters</h3>
+            </div>
+            <div class="vehicle-checklist">
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>Drive Chain Slack:</strong> 20–30mm tension checks, cleaning, and lubrication every 500 km.</div></div>
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>4T Motorcycle Oil:</strong> Strict 1,000–1,500 km intervals due to shared wet clutch shear wear.</div></div>
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>Brake Friction Material:</strong> Pad thickness inspection against backing plate to prevent rotor disc damage.</div></div>
+            </div>
+            <div class="vehicle-sample-case">
+              <strong>Sample Profile:</strong> Yamaha Sniper 150 &bull; Vespa Sprint 150
+            </div>
+          </div>
+
+          <!-- Card 2: Passenger Cars -->
+          <div class="vehicle-card">
+            <div class="vehicle-header">
+              <span class="vehicle-category">Passenger Vehicles</span>
+              <h3>Cars, Sedans &amp; SUVs</h3>
+            </div>
+            <div class="vehicle-checklist">
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>OBD-II Codes:</strong> Check Engine Light (CEL) fault interpretation and sensor freeze frames.</div></div>
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>12V Battery Health:</strong> Parasitic drain detection, terminal sulfation, and alternator charging rates.</div></div>
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>Fluids &amp; Alignment:</strong> Coolant levels, transmission fluid, and tire camber/toe wear patterns.</div></div>
+            </div>
+            <div class="vehicle-sample-case">
+              <strong>Sample Profile:</strong> Honda Civic 1.5 Turbo &bull; Toyota Corolla
+            </div>
+          </div>
+
+          <!-- Card 3: Bicycles -->
+          <div class="vehicle-card">
+            <div class="vehicle-header">
+              <span class="vehicle-category">Pedal &amp; E-Bike</span>
+              <h3>Bicycles &amp; MTBs</h3>
+            </div>
+            <div class="vehicle-checklist">
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>Hydraulic Disc Brakes:</strong> Mineral oil bleeding for spongy lever stroke and pad deglazing.</div></div>
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>Chain Elongation:</strong> 0.5% – 0.75% stretch gauge verification to protect cassette cogs.</div></div>
+              <div class="checklist-point"><span class="dot">&bull;</span> <div><strong>Drivetrain Indexing:</strong> Barrel adjuster tuning for crisp, non-skipping gear shifts.</div></div>
+            </div>
+            <div class="vehicle-sample-case">
+              <strong>Sample Profile:</strong> Trek Marlin 7 &bull; Gravel / Commuter
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Device Ecosystem Spotlight Banner -->
+        <div class="ecosystem-banner">
+          <div class="ecosystem-copy">
+            <span class="kicker">Unified Garage Platform</span>
+            <h3 class="ecosystem-title">One application for your entire garage fleet.</h3>
+            <p class="ecosystem-text">
+              From motorcycle wet-clutch intervals to automotive OBD-II diagnostic freeze frames and bicycle hydraulic bleeds. Switch between vehicle profiles in seconds while keeping scheduled service alerts, AI consultations, and mechanical history synchronized.
+            </p>
+            <div class="ecosystem-highlights">
+              <div class="eco-pill"><span class="bullet">&bull;</span> Active Profile: 2017 Yamaha Sniper 150</div>
+              <div class="eco-pill"><span class="bullet">&bull;</span> Urgent Health &amp; Overdue Item Triage</div>
+              <div class="eco-pill"><span class="bullet">&bull;</span> Multi-Vehicle Garage (Up to 5 Protected Profiles)</div>
+            </div>
+            <div class="ecosystem-actions">
+              <button type="button" class="btn btn-secondary js-download-trigger">
+                Download Android App &darr;
+              </button>
+            </div>
+          </div>
+          <div class="ecosystem-visual">
+            <div class="ecosystem-mockup-wrap" id="ecosystemFrame" role="button" tabindex="0" title="Click to view full-resolution 3-device showcase" aria-label="Inspect 3-device ecosystem showcase">
+              <img
+                src="assets/screenshots/mockup-trio-showcase.png"
+                alt="VehiCare 3-Device Ecosystem Showcase: AI Consultation, Urgent Maintenance Center, and My Garage Fleet"
+                class="ecosystem-img"
+                width="634"
+                height="626"
+                loading="lazy"
+              >
+              <div class="stage-zoom-pill" style="max-width:320px; margin: 12px auto 0;">
+                <span>ECOSYSTEM // 3-DEVICE SUITE</span>
+                <span class="badge badge-attention">Click to Zoom &nearr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. INTERACTIVE DIAGNOSTIC DEMONSTRATION
+         ==================================================================== -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Diagnostic Demonstration</span>
+          <h2 class="title">Test the triage <span class="accent-orange">workflow.</span></h2>
+          <p class="lead">
+            An honest browser demonstration of our triage logic. Choose a vehicle profile and sample inquiry, or enter your own mechanical symptom.
+          </p>
+        </div>
+
+        <div class="terminal-card">
+          <!-- Topbar -->
+          <div class="terminal-header">
+            <div class="terminal-title">
+              <span class="terminal-status-dot"></span>
+              <span>VEHICARE // DIAGNOSTIC TRIAGE PREVIEW</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="badge badge-attention">Web Simulation</span>
+              <button type="button" id="demoResetBtn" class="btn btn-secondary btn-sm" style="font-family:var(--font-mono); font-size:11px;">
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Mode Selector -->
+          <div class="terminal-vehicle-selector" role="tablist" aria-label="Select Diagnostic Vehicle Profile">
+            <button type="button" class="terminal-mode-btn active" data-vehicle="motorcycle" role="tab" aria-selected="true">
+              🏍️ Yamaha Sniper 150
+            </button>
+            <button type="button" class="terminal-mode-btn" data-vehicle="car" role="tab" aria-selected="false">
+              🚗 Honda Civic 1.5T
+            </button>
+            <button type="button" class="terminal-mode-btn" data-vehicle="bicycle" role="tab" aria-selected="false">
+              🚲 Trek Marlin 7
+            </button>
+          </div>
+
+          <!-- Presets -->
+          <div class="terminal-presets" id="presetsBar" aria-label="Sample Diagnostic Questions"></div>
+
+          <!-- Terminal Output Screen -->
+          <div class="terminal-screen" id="demoScreen" role="log" aria-live="polite">
+            <div class="terminal-msg report">
+              <div class="report-top">
+                <span class="report-headline">VehiCare Diagnostic Triage Initialized</span>
+                <span class="badge badge-ready">System Ready</span>
+              </div>
+              <p>Active vehicle: <strong>Yamaha Sniper 150 (2017 Motorcycle)</strong>.</p>
+              <p>Enter any mechanical symptom, noise, or maintenance inquiry below to generate a structured assessment.</p>
+              <p style="font-size:11px; color:var(--text-low); margin-top:8px; border-top:1px solid #1c1c1c; padding-top:6px;">
+                Note: This console demonstrates client-side triage logic. The VehiCare Android application runs neural multimodal sound and photo inspection.
+              </p>
+            </div>
+          </div>
+
+          <!-- Loader -->
+          <div class="terminal-loader" id="demoLoader">
+            <span style="color:var(--orange); font-size:14px;">●</span>
+            <span>Evaluating symptom matrix...</span>
+          </div>
+
+          <!-- Form Input Bar -->
+          <div class="terminal-input-bar">
+            <form id="demoForm" class="terminal-form">
+              <input
+                type="text"
+                id="demoInput"
+                class="terminal-input"
+                placeholder="Ask about a symptom (e.g., ticking noise on cold start)..."
+                autocomplete="off"
+                maxlength="200"
+                aria-label="Vehicle symptom query"
+              >
+              <button type="submit" id="demoSubmitBtn" class="btn btn-primary" disabled>
+                Evaluate &rarr;
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. APPLICATION DOWNLOAD
+         ==================================================================== -->
+    <section class="section" id="download">
+      <div class="container">
+        <div class="download-layout">
+          <div class="download-copy">
+            <span class="kicker">Android Application</span>
+            <h3>Carry VehiCare in your pocket.</h3>
+            <p>
+              Experience real-time acoustic knock detection, camera wear analysis, and local mechanic discovery on your Android device.
+            </p>
+            <div class="download-actions">
+              <button type="button" class="btn btn-primary js-download-trigger">
+                Download Android APK &darr;
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                View on GitHub &nearr;
+              </a>
+            </div>
+            <p style="font-family:var(--font-mono); font-size:11px; color:var(--text-low); margin-top:14px;">
+              Release Status: <span id="apkStatusLabel" style="color:var(--orange-light);">Beta Testing Phase</span>
+            </p>
+          </div>
+
+          <div class="spec-table" aria-label="Application Specifications">
+            <div class="spec-row">
+              <span class="spec-key">Platform</span>
+              <span class="spec-val">Android 8.0 (Oreo)+</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Architecture</span>
+              <span class="spec-val">arm64-v8a / armeabi-v7a</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Format</span>
+              <span class="spec-val">Standalone APK</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Permissions</span>
+              <span class="spec-val">Microphone (Audio) &bull; Camera</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7. TECHNICAL FAQ
+         ==================================================================== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Frequently Asked Questions</span>
+          <h2 class="title">Clear answers about <span class="accent-orange">VehiCare.</span></h2>
+          <p class="lead">
+            Details on diagnostic scope, safety boundaries, and application release architecture.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Is VehiCare AI a replacement for a qualified mechanic?</span>
+              <span class="faq-indicator">+</span>
+            </summary>
+            <div class="faq-content">
+              <p><strong>No.</strong> VehiCare is an educational pre-workshop triage assistant designed to help owners understand symptoms, assess urgency, and plan repair costs.</p>
+              <p>For safety-critical concerns such as brake failure, fuel leaks, suspension collapse, or severe electrical shorts, always seek physical inspection from a certified mechanic.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Which vehicle types are supported?</span>
+              <span class="faq-indicator">+</span>
+            </summary>
+            <div class="faq-content">
+              <p>VehiCare supports three vehicle categories: passenger cars &amp; SUVs, motorcycles &amp; scooters, and bicycles &amp; e-bikes, with distinct service thresholds for each.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>How does multimodal concern submission work in the app?</span>
+              <span class="faq-indicator">+</span>
+            </summary>
+            <div class="faq-content">
+              <p>In the Android application, you can describe issues via text, record mechanical sounds (engine knocking, belt squeals) via microphone, or take photos of worn components (tire tread, brake pads).</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>What is the difference between Free and Premium plans?</span>
+              <span class="faq-indicator">+</span>
+            </summary>
+            <div class="faq-content">
+              <p>The Free Plan includes 1 active vehicle profile with standard AI symptom triage. The Premium Plan (shown in our app screenshots with 5/5 profiles) unlocks up to 5 protected profiles, multimodal audio/photo submissions, and deep activity history.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>How do I configure the real APK download URL in this website?</span>
+              <span class="faq-indicator">+</span>
+            </summary>
+            <div class="faq-content">
+              <p>Open <code>script.js</code> and configure <code>APP_CONFIG.apkDownloadUrl</code> with your GitHub Release or hosted APK link. Once set, all download buttons will fetch the APK immediately.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         8. CONTACT & TESTING FORM
+         ==================================================================== -->
+    <section class="section" id="contact">
+      <div class="container contact-layout">
+        <div>
+          <span class="kicker">Contact &amp; Testing</span>
+          <h2 class="title">Connect with the <span class="accent-orange">team.</span></h2>
+          <p class="lead">
+            Interested in testing the Android beta, providing feedback on diagnostic accuracy, or discussing workshop integrations? Send us a message.
+          </p>
+          <div style="margin-top:20px; padding:14px; background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); font-size:12px; color:var(--text-mid);">
+            <strong style="color:#fff; display:block; margin-bottom:4px;">Deployment Notice:</strong>
+            This form executes client-side validation. To route submissions to an email inbox or database on Render, connect an endpoint like Formspree or your backend as documented in <code>README.md</code>.
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div id="contactSuccess" style="display:none; padding:12px 14px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:var(--radius-sm); font-size:13px; color:#86efac; margin-bottom:16px;">
+            <strong>✓ Message Validated:</strong> Thank you for your inquiry. (As noted, live email routing requires configuring your backend endpoint).
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="contactName" class="form-label">Name</label>
+              <input type="text" id="contactName" class="form-input" placeholder="e.g. Alex Santos" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Email</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactVehicle" class="form-label">Primary Vehicle</label>
+              <select id="contactVehicle" class="form-input" required>
+                <option value="" disabled selected>Select vehicle category...</option>
+                <option value="motorcycle">Motorcycle / Scooter</option>
+                <option value="car">Car / Sedan / SUV</option>
+                <option value="bicycle">Bicycle (Road / MTB / Commuter)</option>
+                <option value="fleet">Multiple Vehicles (Fleet / Garage)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMsg" class="form-label">Message</label>
+              <textarea id="contactMsg" class="form-input" rows="3" placeholder="Describe your question or testing interest..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Submit Message &rarr;
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#top" class="brand">
+            <div class="brand-icon">
+              <img src="assets/logo.png" alt="VehiCare Logo" width="30" height="30" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;color:#f5501c;font-size:14px;\'>V+</span>'">
+            </div>
+            <span class="brand-text">Vehi<span class="accent-orange">Care</span></span>
+          </a>
+          <p>
+            Intelligent multi-vehicle mechanical diagnostics and maintenance assistance system for cars, motorcycles, and bicycles.
+          </p>
+          <div style="font-family:var(--font-mono); font-size:10px; color:var(--text-low); margin-top:10px;">
+            TAGLINE: Driving Smarter. Diagnosing Faster. Maintaining Better.
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="#overview">Overview</a>
+            <a href="#experience">App Experience</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#vehicles">Supported Vehicles</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <div class="footer-links">
+            <a href="#demo">Diagnostic Demo</a>
+            <a href="#download">Download APK</a>
+            <a href="#faq">Technical FAQ</a>
+            <a href="#contact">Contact &amp; Testing</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Repository</h4>
+          <div class="footer-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Project &nearr;</a>
+            <a href="#download">Release Specifications</a>
+            <a href="#faq">Architecture Boundaries</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="copyrightYear"></span> VehiCare. All rights reserved.</span>
+        <span>Informational triage tool &bull; Consult a certified mechanic for physical inspections</span>
+        <a href="#top" id="backToTopBtn" style="color:var(--text-mid);">&uarr; Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       MODALS
+       ==================================================================== -->
+  <!-- Screenshot Lightbox Modal -->
+  <div id="lightboxModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Screenshot Inspection">
+    <div class="modal-content lightbox-box">
+      <button type="button" id="lightboxClose" class="modal-close" aria-label="Close image inspection">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Enlarged screenshot">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Download Info / Coming Soon Modal -->
+  <div id="downloadModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Download Information">
+    <div class="modal-content">
+      <button type="button" id="downloadClose" class="modal-close" aria-label="Close dialog">&times;</button>
+      <span class="kicker">Android Release</span>
+      <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:#fff; margin-bottom:10px;">
+        VehiCare APK Release
+      </h3>
+      <p style="font-size:14px; color:var(--text-mid); line-height:1.6; margin-bottom:16px;">
+        The public APK download link has not yet been attached to this deployment.
+      </p>
+      <div style="background:#090909; border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:12px; font-family:var(--font-mono); font-size:11px; color:var(--text-mid); margin-bottom:18px;">
+        <strong style="color:#fff;">Repository Setup:</strong> Configure <code>APP_CONFIG.apkDownloadUrl</code> in <code>script.js</code> with your GitHub Release or hosted APK link.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="#contact" class="btn btn-primary" onclick="document.getElementById('downloadModal').classList.remove('open'); document.body.classList.remove('drawer-open');">Join Beta Waitlist &rarr;</a>
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('downloadModal').classList.remove('open'); document.body.classList.remove('drawer-open');">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
