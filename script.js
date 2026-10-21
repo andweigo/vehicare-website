@@ -808,10 +808,10 @@ function initContactForm() {
       return;
     }
 
-    const prevBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Message';
+    const prevBtnText = submitBtn ? submitBtn.innerHTML : 'Send Message to VehiCare';
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Sending to Andrei via Gmail...';
+      submitBtn.innerHTML = 'Sending Message to VehiCare...';
     }
 
     try {
