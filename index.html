@@ -159,30 +159,30 @@
 
   <main id="main-content">
     <!-- ====================================================================
-         1. HERO SECTION (Floating device, zero box container)
+         1. HERO SECTION (Floating hardware with live telemetry pills)
          ==================================================================== -->
     <section class="section hero-section" id="overview">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="hero-badge-row hero-enter-1">
-            <span class="badge-pill">
-              <span class="status-dot status-dot-live" aria-hidden="true"></span>
-              Android Release v1.0.0 &bull; Verified Build
+            <span class="hero-kicker-pill">
+              <span class="kicker-pulse-dot" aria-hidden="true"></span>
+              Automotive Mechanical Intelligence &bull; v1.0.0 Live
             </span>
-            <span class="hero-subbadge">Cars &bull; Motorcycles &bull; Bicycles &bull; Powered by Gemini 3.8 Flash</span>
           </div>
 
           <h1 class="hero-title hero-enter-2">
-            Diagnostics and care for everything you ride.
+            Know what's wrong with your ride <span class="text-gradient-orange">before the workshop.</span>
           </h1>
 
           <p class="hero-lead hero-enter-3">
-            VehiCare unites full-stack automotive intelligence—pairing a React Native mobile client, Laravel 12 backend, and a Node.js Google Gemini 3.8 Flash microservice—to triage mechanical symptoms, calculate health scores, and track maintenance across two wheels and four.
+            Instant diagnostic triage, acoustic sound validation, and proactive maintenance tracking for cars, motorcycles, and bicycles. Decode mechanical symptoms with real-time AI in your pocket.
           </p>
 
           <div class="hero-actions hero-enter-4">
-            <button type="button" class="btn btn-primary js-download-trigger">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <button type="button" class="btn btn-primary btn-glow js-download-trigger">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -197,36 +197,86 @@
           <div class="hero-specs-row hero-enter-5">
             <div class="hero-spec-item">
               <span class="spec-bullet">&bull;</span>
-              <span>4-Tier Catalog: Motorcycles, Cars &amp; Bicycles</span>
+              <span>Sub-Second AI Triage</span>
             </div>
             <div class="hero-spec-item">
               <span class="spec-bullet">&bull;</span>
-              <span>4 Input Modalities: Text, Audio, Photo &amp; Video</span>
+              <span>94% Diagnostic Precision</span>
             </div>
             <div class="hero-spec-item">
               <span class="spec-bullet">&bull;</span>
-              <span>Standalone APK &bull; 136.3 MB (Android 8.0+)</span>
+              <span>5-Profile Fleet Garage</span>
+            </div>
+            <div class="hero-spec-item">
+              <span class="spec-bullet">&bull;</span>
+              <span>Android 8.0+ Ready (136 MB)</span>
             </div>
           </div>
         </div>
 
-        <!-- Floating Phone Mockup (Mobbin style - pure hardware, no card, no background box) -->
+        <!-- Floating 3D Perspective Hardware Showcase with Orbiting Telemetry Pills -->
         <div class="hero-stage-col hero-enter-stage">
-          <div
-            class="hero-floating-frame"
-            id="heroMockupFrame"
-            role="button"
-            tabindex="0"
-            aria-label="Click to inspect dual-screen Android app showcase in full resolution"
-          >
-            <img
-              src="assets/screenshots/mockup-duo-hero.png"
-              alt="VehiCare Android mobile app showing Home Dashboard and AI Consultation on Yamaha Sniper 150"
-              class="hero-floating-img"
-              width="560"
-              height="673"
-              loading="eager"
+          <div class="hero-stage-wrapper">
+            <div
+              class="hero-floating-frame"
+              id="heroMockupFrame"
+              role="button"
+              tabindex="0"
+              aria-label="Click to inspect 3-device perspective showcase in full resolution"
             >
+              <img
+                src="assets/screenshots/mockup-trio-showcase.png"
+                alt="VehiCare 3-Device Perspective Showcase: AI Consultation, History Log, and Multi-Vehicle Garage"
+                class="hero-floating-img"
+                width="787"
+                height="698"
+                loading="eager"
+              >
+            </div>
+
+            <!-- Floating Live Telemetry Badge 1: Active Vehicle Condition -->
+            <div class="hero-telemetry-pill pill-top-right" aria-hidden="true">
+              <span class="telemetry-pill-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                  <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                  <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 11h4l2 6.5"></path>
+                  <path d="m14 11-4-5-3 3"></path>
+                </svg>
+              </span>
+              <div class="telemetry-pill-text">
+                <span class="telemetry-pill-title">Trek Marlin 7</span>
+                <span class="telemetry-pill-sub"><span class="status-pulse-dot"></span> 94% Optimal Health</span>
+              </div>
+            </div>
+
+            <!-- Floating Live Telemetry Badge 2: Diagnostic Severity Alert -->
+            <div class="hero-telemetry-pill pill-bottom-left" aria-hidden="true">
+              <span class="telemetry-pill-icon icon-warn" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </span>
+              <div class="telemetry-pill-text">
+                <span class="telemetry-pill-title">Diagnostic Alert</span>
+                <span class="telemetry-pill-sub">Inspect brake pads &bull; Caliper check</span>
+              </div>
+            </div>
+
+            <!-- Floating Live Telemetry Badge 3: Fleet Garage Capacity -->
+            <div class="hero-telemetry-pill pill-bottom-right" aria-hidden="true">
+              <span class="telemetry-pill-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </span>
+              <div class="telemetry-pill-text">
+                <span class="telemetry-pill-title">Premium Fleet</span>
+                <span class="telemetry-pill-sub">4 of 5 Profiles Active</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -301,29 +351,142 @@
         <!-- Composition B: Maintenance Tracking & Smart Recommendations (Asymmetric 2-Card Spotlight) -->
         <div class="capability-spotlight-grid reveal-on-scroll">
           <div class="spotlight-card">
-            <span class="capability-micro-tag">Maintenance Tracking</span>
-            <h3 class="spotlight-title">Urgent Health Center &amp; Service Intervals</h3>
+            <div class="spotlight-card-header">
+              <div>
+                <span class="capability-micro-tag">Maintenance Intelligence</span>
+                <h3 class="spotlight-title">Real-Time Condition &amp; Preventive Upkeep</h3>
+              </div>
+              <div class="app-vehicle-badge">
+                <span class="app-vehicle-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                    <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                    <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 11h4l2 6.5"></path>
+                    <path d="m14 11-4-5-3 3"></path>
+                  </svg>
+                </span>
+                <span class="app-vehicle-label">Trek Marlin 7</span>
+              </div>
+            </div>
             <p class="spotlight-desc">
-              Monitor your vehicle's overall health score (e.g. 25% Needs Immediate Attention) alongside overdue service items categorized by severity across brakes, engine, and electrical systems.
+              Continuous diagnostic health tracking locked to your vehicle's service intervals. Instant visual triage alerts you to upcoming brake inspections and fluid life before costly mechanical breakdown.
             </p>
-            <ul class="spotlight-check-list">
-              <li>&check; <strong>Health Score Gauge:</strong> Instant visual indication of maintenance debt.</li>
-              <li>&check; <strong>8-Point Urgent Checklist:</strong> Clear categorization of overdue fluids, chains, and pads.</li>
-              <li>&check; <strong>Beginner's 3-Step Guide:</strong> Actionable prioritization for new vehicle owners.</li>
-            </ul>
+
+            <!-- Authentic App Component Snapshot: Condition Gauge & Schedule -->
+            <div class="app-preview-card">
+              <div class="app-preview-top">
+                <div class="app-gauge-wrap">
+                  <div class="app-gauge-circle">
+                    <svg viewBox="0 0 100 100" class="app-gauge-svg" aria-hidden="true">
+                      <circle cx="50" cy="50" r="42" class="gauge-bg" />
+                      <circle cx="50" cy="50" r="42" class="gauge-fill" stroke-dasharray="264" stroke-dashoffset="16" />
+                    </svg>
+                    <div class="app-gauge-text">
+                      <span class="gauge-val">94<small>%</small></span>
+                      <span class="gauge-label">HEALTH</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-gauge-meta">
+                  <div class="app-status-pill status-optimal">
+                    <span class="status-pulse-dot" aria-hidden="true"></span>
+                    <span>OPTIMAL &bull; All systems checked</span>
+                  </div>
+                  <div class="app-stat-counters">
+                    <div class="stat-pill"><strong class="stat-num stat-orange">4</strong> Due soon</div>
+                    <div class="stat-pill"><strong class="stat-num">0</strong> Overdue</div>
+                    <div class="stat-pill"><strong class="stat-num stat-green">3</strong> Done</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-preview-rec">
+                <div class="rec-header">
+                  <span class="app-tag tag-preventive">RECOMMENDED NEXT</span>
+                  <span class="rec-type">Scheduled Maintenance</span>
+                </div>
+                <div class="rec-title">Inspect brake pads</div>
+                <p class="rec-desc">Standard vehicle intervals for hydraulic disc calipers. Wear indicator check and rotor alignment.</p>
+              </div>
+            </div>
           </div>
 
           <div class="spotlight-card">
-            <span class="capability-micro-tag">Smart Recommendations</span>
-            <h3 class="spotlight-title">Proactive Preventive Guidance</h3>
+            <div class="spotlight-card-header">
+              <div>
+                <span class="capability-micro-tag">Smart Recommendations</span>
+                <h3 class="spotlight-title">Fleet Diagnostic Categories</h3>
+              </div>
+              <div class="app-plan-badge">
+                <span class="app-plan-dot" aria-hidden="true"></span>
+                <span>Premium Garage: 4/5 Profiles</span>
+              </div>
+            </div>
             <p class="spotlight-desc">
-              VehiCare analyzes current odometer readings, elapsed time since last service, and vehicle type to recommend preventive upkeep before small issues turn into expensive mechanical failures.
+              VehiCare organizes maintenance tasks across specific mechanical subsystems with clear urgency rankings, direct walkthrough guides, and AI assistance:
             </p>
-            <ul class="spotlight-check-list">
-              <li>&check; <strong>Drive Chain Tension &amp; Lube:</strong> Alerts every 500 km or after wet rides.</li>
-              <li>&check; <strong>Motorcycle Wet-Clutch Oil:</strong> 1,500–3,000 km intervals tailored to high-RPM singles.</li>
-              <li>&check; <strong>Bicycle Hydraulic Caliper Bleeds:</strong> Mineral oil renewal reminders based on ride hours.</li>
-            </ul>
+
+            <div class="category-cards-grid">
+              <div class="app-cat-card">
+                <div class="cat-card-top">
+                  <span class="cat-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path>
+                    </svg>
+                  </span>
+                  <span class="app-tag tag-preventive">PREVENTIVE</span>
+                </div>
+                <h4 class="cat-title">Hydraulic Brakes</h4>
+                <p class="cat-meta">1 recommended &bull; Pad wear &amp; mineral oil check</p>
+              </div>
+
+              <div class="app-cat-card">
+                <div class="cat-card-top">
+                  <span class="cat-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                      <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                      <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                      <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                    </svg>
+                  </span>
+                  <span class="app-tag tag-preventive">PREVENTIVE</span>
+                </div>
+                <h4 class="cat-title">Tires &amp; Wheels</h4>
+                <p class="cat-meta">2 recommended &bull; PSI pressure &amp; rim true</p>
+              </div>
+
+              <div class="app-cat-card">
+                <div class="cat-card-top">
+                  <span class="cat-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                  </span>
+                  <span class="app-tag tag-neutral">SCHEDULED</span>
+                </div>
+                <h4 class="cat-title">Chain &amp; Drive</h4>
+                <p class="cat-meta">Chain stretch 0.5% &bull; Dry lube interval</p>
+              </div>
+
+              <div class="app-cat-card">
+                <div class="cat-card-top">
+                  <span class="cat-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                  </span>
+                  <span class="app-tag tag-neutral">INSPECTION</span>
+                </div>
+                <h4 class="cat-title">Gears &amp; Drivetrain</h4>
+                <p class="cat-meta">B-limit screw &amp; cable tension alignment</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -376,9 +539,9 @@
             >
               <span class="walkthrough-num">01</span>
               <div class="walkthrough-content">
-                <h3 class="walkthrough-item-title">Maintenance &amp; Urgent Health Center</h3>
+                <h3 class="walkthrough-item-title">Maintenance &amp; Preventive Care</h3>
                 <p class="walkthrough-item-desc">
-                  Overall health gauge (25% Needs Immediate Attention), 8 overdue items categorized by urgency, and a 3-step beginner's guide.
+                  Active Trek Marlin 7 maintenance tracker with 94% optimal condition, upcoming brake pad inspection guide, and zero overdue items.
                 </p>
               </div>
             </button>
@@ -395,9 +558,9 @@
             >
               <span class="walkthrough-num">02</span>
               <div class="walkthrough-content">
-                <h3 class="walkthrough-item-title">Model-Specific Technical Consultation</h3>
+                <h3 class="walkthrough-item-title">Intelligent Automotive &amp; Bike AI Assistant</h3>
                 <p class="walkthrough-item-desc">
-                  Technical guidance tailored to specific vehicles—such as Yamaha Sniper 150 10W-40 4T oil specs and 25–35 mm drive chain slack.
+                  Conversational AI triage ready to diagnose mechanical symptoms, sound recordings, and ride anomalies for Trek Marlin 7.
                 </p>
               </div>
             </button>
@@ -416,7 +579,7 @@
               <div class="walkthrough-content">
                 <h3 class="walkthrough-item-title">Daily Vehicle Command Hub</h3>
                 <p class="walkthrough-item-desc">
-                  Active vehicle profile, one-tap "Something wrong?" intake, nearby repair workshop routing, and smart service reminders.
+                  Active vehicle cockpit displaying real-time 94% diagnostic condition, one-tap "Something wrong?" intake, and garage switcher.
                 </p>
               </div>
             </button>
@@ -433,9 +596,9 @@
             >
               <span class="walkthrough-num">04</span>
               <div class="walkthrough-content">
-                <h3 class="walkthrough-item-title">My Garage &amp; Multi-Vehicle Fleet</h3>
+                <h3 class="walkthrough-item-title">Garage Profile &amp; Fleet Management</h3>
                 <p class="walkthrough-item-desc">
-                  Manage up to 5 protected profiles (Yamaha Sniper 150, Trek Marlin 7, Vespa Sprint 150) with isolated service histories.
+                  User profile and garage limit management on Premium Plan (4 of 5 vehicles configured) with dark theme preferences.
                 </p>
               </div>
             </button>
@@ -452,9 +615,9 @@
             >
               <span class="walkthrough-num">05</span>
               <div class="walkthrough-content">
-                <h3 class="walkthrough-item-title">Searchable Diagnostic Activity History</h3>
+                <h3 class="walkthrough-item-title">Diagnostic Alerts &amp; Fleet Notifications</h3>
                 <p class="walkthrough-item-desc">
-                  Log of past consultations filtered by Diagnoses, Chats, or Maintenance, paired with generated AI summaries.
+                  Chronological feed of high-severity diagnostic alerts, preventive maintenance recommendations, and fleet notifications.
                 </p>
               </div>
             </button>
@@ -478,14 +641,14 @@
               <img
                 id="stageImage"
                 src="assets/screenshots/mockup-maintenance.png"
-                alt="VehiCare Maintenance screen showing 25% Health Score, 8 critical alerts, and 3-step beginner maintenance overview"
+                alt="VehiCare Maintenance screen showing 94% Optimal Health, Inspect brake pads recommendation, and scheduled service tracking for Trek Marlin 7"
                 class="walkthrough-floating-img"
                 width="360"
                 height="710"
               >
             </div>
             <p class="walkthrough-caption" id="stageCaption">
-              Urgent Health Center on a 2017 Yamaha Sniper 150: 25% health rating, 8 overdue items, and a 3-step priority guide.
+              Maintenance Center on a 2021 Trek Marlin 7: 94% optimal health, 4 items due soon, and direct inspection guides.
             </p>
           </div>
         </div>
@@ -597,15 +760,27 @@
 
             <ul class="fleet-check-list">
               <li>
-                <span class="fleet-check-icon">&check;</span>
+                <span class="fleet-check-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span><strong>Active Profile Management:</strong> Seamless context switching between bikes, motorcycles, and cars.</span>
               </li>
               <li>
-                <span class="fleet-check-icon">&check;</span>
+                <span class="fleet-check-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span><strong>Isolated Health Centers:</strong> 26 brake and 4 engine diagnostic checks categorized per ride.</span>
               </li>
               <li>
-                <span class="fleet-check-icon">&check;</span>
+                <span class="fleet-check-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span><strong>Up to 5 Protected Profiles:</strong> Full fleet tracking on the VehiCare Premium Plan.</span>
               </li>
             </ul>
@@ -617,21 +792,21 @@
             </div>
           </div>
 
-          <!-- Floating 3D Triple-Phone Hardware Render -->
+          <!-- Dual-Phone Hardware Render: Home Command Dashboard & AI Consultation -->
           <div class="fleet-showcase-visual">
             <div
               class="ecosystem-floating-frame"
               id="ecosystemFrame"
               role="button"
               tabindex="0"
-              aria-label="Inspect 3-device ecosystem showcase in full resolution"
+              aria-label="Inspect dual-screen Home & AI Consultation showcase in full resolution"
             >
               <img
-                src="assets/screenshots/mockup-trio-showcase.png"
-                alt="VehiCare 3-Device Ecosystem: AI Consultation, Urgent Maintenance Center, and My Garage Fleet Switcher"
+                src="assets/screenshots/mockup-duo-hero.png"
+                alt="VehiCare Dual-Screen System: Home Diagnostic Condition (94% Health) & Model-Specific AI Consultation"
                 class="ecosystem-floating-img"
-                width="634"
-                height="626"
+                width="750"
+                height="920"
                 loading="lazy"
               >
             </div>
@@ -721,23 +896,43 @@
 
             <ul class="pricing-bullet-list">
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>1 Active Vehicle Profile</strong> (Motorcycle, Car, or Bicycle)</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Model-Specific AI Consultation</strong> and service intervals</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Health Score &amp; Overdue Checks</strong> (Brakes, Engine, Electrics)</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Beginner's 3-Step Maintenance Overview</strong></span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Local Repair Shop Discovery</strong></span>
               </li>
             </ul>
@@ -775,23 +970,43 @@
 
             <ul class="pricing-bullet-list">
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Up to 5 Protected Vehicle Profiles</strong> with instant context switching</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Multimodal Acoustic Sound Recording</strong> for engine knocks</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Camera Part Wear Detection</strong> for brake pads and tires</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Searchable Activity History</strong> with AI consultation summaries</span>
               </li>
               <li>
-                <span class="pricing-check-icon" aria-hidden="true">&check;</span>
+                <span class="pricing-check-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
                 <span class="pricing-bullet-text"><strong>Isolated Service Logs</strong> per vehicle with odometer tracking</span>
               </li>
             </ul>
@@ -1168,5 +1383,26 @@
 
   <!-- Main Application Script -->
   <script src="script.js"></script>
+
+<script>
+window.addEventListener('load', () => {
+  const elements = document.querySelectorAll('*');
+  const overflowing = [];
+  const winW = window.innerWidth;
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.right > winW + 1) {
+      overflowing.push({
+        tag: el.tagName,
+        id: el.id,
+        className: el.className,
+        right: Math.round(rect.right),
+        width: Math.round(rect.width)
+      });
+    }
+  });
+  console.log('OVERFLOW_REPORT:' + JSON.stringify(overflowing.slice(0, 15)));
+});
+</script>
 </body>
 </html>

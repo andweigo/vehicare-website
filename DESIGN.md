@@ -9,7 +9,8 @@
 ## 1. Minimalist Showcase Principles
 
 1. **Hardware Silhouette Breathing on Canvas**
-   - Application screenshots and renders (`mockup-duo-hero.png`, `mockup-maintenance.png`, `mockup-trio-showcase.png`) stand directly on the section canvas without artificial card borders or container boxes.
+   - Application screenshots and renders (`mockup-trio-showcase.png`, `mockup-maintenance.png`, `mockup-duo-hero.png`) stand directly on the section canvas without artificial card borders or container boxes.
+   - Hero presentation incorporates orbiting live telemetry badges (`Trek Marlin 7 94% Optimal`, `Diagnostic Alert`, `Premium Fleet`) and ambient atmospheric lighting.
    - Natural ambient multi-layer drop shadows provide depth:
      ```css
      filter: drop-shadow(0 28px 56px rgba(0, 0, 0, 0.52)) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.3));
@@ -95,10 +96,10 @@ Official Google Fonts pairing:
    - Editorial 2-column split with real-world technical consultation example (Yamaha Sniper 150 valve clearances & 10W-40 4T JASO MA2 oil).
    - Clear educational boundary notice clarifying that VehiCare prepares owners for repair conversations and does not replace physical inspection by certified mechanics.
 2. **Maintenance Tracking & Smart Recommendations**
-   - Asymmetric dual-card spotlight presenting the Urgent Health Center gauge (25% health rating, 8 overdue items) and proactive preventive reminders.
+   - Asymmetric spotlight presenting the Maintenance Center (94% optimal health rating, upcoming brake pad inspections) and proactive preventive reminders.
 3. **Multi-Vehicle Garage Engineering**
    - 3-column specification comparison: Motorcycles & Scooters (wet clutch & chain slack), Cars & SUVs (OBD-II & 12V drain), Bicycles & MTBs (hydraulic mineral oil & chain stretch).
-   - Triple-phone hardware showcase (`mockup-trio-showcase.png`) showing instant fleet context switching for up to 5 protected profiles.
+   - Triple-phone hardware showcase (`mockup-trio-showcase.png`) demonstrating unified fleet context switching across protected vehicle profiles.
 4. **Repair Shop Locator & Searchable History**
    - Horizon split showcasing nearby workshop discovery and 20+ session activity logs with AI summaries.
 5. **Garage Capacity & Pricing**

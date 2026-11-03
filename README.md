@@ -35,18 +35,18 @@ vehicare-website/
     ├── logo.png                         # Web-optimized 256x256 brand mark
     ├── ic_launcher_round.png.png        # Original 2048x2048 Android launcher icon
     └── screenshots/                     # Authentic Android application screens & transparent hardware mockups:
-        ├── mockup-duo-hero.png          # 3D Dual-Phone Hero Mockup (Home Dashboard + AI Consultation)
-        ├── mockup-trio-showcase.png     # 3D Triple-Phone Ecosystem Showcase (AI Chat + Health + Garage)
-        ├── mockup-home.png              # Home Dashboard (Active Yamaha Sniper 150 & 4 Service Hubs)
-        ├── mockup-maintenance.png       # Urgent Health Center (25% Health Score & 3-Step Guide)
-        ├── mockup-ai-consultation.png   # Active AI Consultation (Yamaha Sniper 150 10W-40 specs)
-        ├── mockup-ai-chat.png           # Diagnostic Intake (Prompt suggestions & multimodal context)
-        ├── mockup-splash.png            # Application Splash Screen & Official Logo Emblem
-        ├── 01-ai-chat-assistant.jpg     # Raw Screen Capture: AI Consultation
-        ├── 02-maintenance-dashboard.jpg # Raw Screen Capture: Urgent Health Center
-        ├── 03-my-garage.jpg             # Raw Screen Capture: My Garage (5/5 Protected Profiles)
-        ├── 04-vehicle-selector.jpg      # Raw Screen Capture: Context Switcher
-        └── 05-history-activity.jpg      # Raw Screen Capture: Diagnostic History
+        ├── mockup-duo-hero.png          # 3D Dual-Phone Hero Mockup (Home Dashboard + AI Consultation on Trek Marlin 7)
+        ├── mockup-trio-showcase.png     # 3D Triple-Phone Ecosystem Showcase (Maintenance + Home + Garage Profile)
+        ├── mockup-home.png              # Home Command Dashboard (Active Trek Marlin 7 & 94% Optimal Health Gauge)
+        ├── mockup-maintenance.png       # Maintenance Center (94% Optimal Health, Inspect Brake Pads Guide)
+        ├── mockup-ai-consultation.png   # Active AI Consultation (Trek Marlin 7 Symptom Analysis)
+        ├── mockup-ai-chat.png           # Diagnostic Intake (Conversational mechanical assistant)
+        ├── mockup-profile.png           # User Profile & Garage Management (5 Vehicle Capacity & Premium Plan)
+        ├── mockup-notifications.png     # Updates & Activity (High Severity Diagnostic Alerts & Recommendations)
+        ├── 01-ai-chat-assistant.jpg     # Screen Capture: AI Consultation
+        ├── 02-maintenance-dashboard.jpg # Screen Capture: Maintenance & Health
+        ├── 03-my-garage.jpg             # Screen Capture: Garage & Profile Management
+        └── 05-history-activity.jpg      # Screen Capture: Diagnostic Alerts & Notifications
 ```
 
 ---

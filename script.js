@@ -217,27 +217,27 @@ function initExperienceWalkthrough() {
     "01": {
       src: "assets/screenshots/mockup-maintenance.png",
       label: "Screen 01 • Maintenance & Health Score",
-      caption: "Urgent Health Center on a 2017 Yamaha Sniper 150: 25% health rating, 8 overdue items, and a 3-step priority guide."
+      caption: "Maintenance Center on a 2021 Trek Marlin 7: 94% optimal health, 4 items due soon, and direct inspection guides."
     },
     "02": {
       src: "assets/screenshots/mockup-ai-consultation.png",
       label: "Screen 02 • Contextual AI Consultation",
-      caption: "Model-specific consultation for a 2017 Yamaha Sniper 150: 10W-40 4T motorcycle oil intervals (1,500–3,000 km) and 25–35 mm chain slack."
+      caption: "VehiCare AI Chat Assistant: Conversational mechanical intake and symptom analysis tailored specifically to Trek Marlin 7."
     },
     "03": {
       src: "assets/screenshots/mockup-home.png",
       label: "Screen 03 • Home Command Dashboard",
-      caption: "Daily Command Center: Active 2017 Yamaha Sniper 150 profile, rapid 'Something wrong?' intake, and nearby repair workshops."
+      caption: "Home Command Dashboard: Real-time 94% diagnostic condition gauge, active Trek Marlin 7 profile, and instant diagnosis entry."
     },
     "04": {
-      src: "assets/screenshots/03-my-garage.jpg",
-      label: "Screen 04 • My Garage (5/5 Protected Profiles)",
-      caption: "My Garage on Premium Plan (5/5 profiles): Managing a 2017 Yamaha Sniper 150, 2021 Trek Marlin 7, and 2021 Vespa Sprint 150."
+      src: "assets/screenshots/mockup-profile.png",
+      label: "Screen 04 • My Garage & Profile (4/5 Vehicles)",
+      caption: "User Profile & Garage Hub: Active Premium Plan with 5-vehicle capacity, account security, and dark mode interface settings."
     },
     "05": {
-      src: "assets/screenshots/05-history-activity.jpg",
-      label: "Screen 05 • Searchable Diagnostic History",
-      caption: "Activity History log with 20 recorded sessions, instant search, category filters (All, Diagnoses, Chats, Maintenance), and AI summaries."
+      src: "assets/screenshots/mockup-notifications.png",
+      label: "Screen 05 • Diagnostic Alerts & Notifications",
+      caption: "Activity & Notification Center: Prioritized high-severity diagnostic alerts, inspection reminders, and category filtering."
     }
   };
 
@@ -337,12 +337,12 @@ function initExperienceWalkthrough() {
 
   bindZoomableFrame(walkthroughFrame, () => screens[activeKey]);
   bindZoomableFrame(document.getElementById('heroMockupFrame'), () => ({
-    src: 'assets/screenshots/mockup-duo-hero.png',
-    caption: 'VehiCare Android App: Home Command Dashboard & AI Diagnostic Assistant on a 2017 Yamaha Sniper 150'
+    src: 'assets/screenshots/mockup-trio-showcase.png',
+    caption: 'VehiCare 3-Device Perspective Showcase: AI Consultation on Trek Marlin 7, History Log, and Multi-Vehicle Garage'
   }));
   bindZoomableFrame(document.getElementById('ecosystemFrame'), () => ({
-    src: 'assets/screenshots/mockup-trio-showcase.png',
-    caption: 'VehiCare 3-Screen Suite: AI Maintenance Schedule, Urgent Health Score (25%), and My Garage Fleet Switcher'
+    src: 'assets/screenshots/mockup-duo-hero.png',
+    caption: 'VehiCare Dual-Screen System: Home Diagnostic Condition (94% Health) & Model-Specific AI Consultation'
   }));
 
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
@@ -382,6 +382,7 @@ function initGeminiConfigModal() {
     if (keyInput) {
       keyInput.value = savedKey;
     }
+
     if (statusText) {
       if (savedKey) {
         const masked = savedKey.slice(0, 6) + '...' + savedKey.slice(-4);
@@ -715,7 +716,7 @@ function initPricingSelection() {
 }
 
 /* ==========================================================================
-   12. Utilities (Back-to-Top & Copyright Year)
+   11. Utilities (Back-to-Top & Copyright Year)
    ========================================================================== */
 function initUtilities() {
   const yearEl = document.getElementById('copyrightYear');
